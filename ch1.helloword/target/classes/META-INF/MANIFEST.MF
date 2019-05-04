@@ -1,0 +1,10 @@
+Manifest-Version: 1.0
+Implementation-Title: ch1.helloworld
+Implementation-Version: 0.0.1-SNAPSHOT
+Built-By: SuDenghui
+Implementation-Vendor-Id: com.bee.sample
+Build-Jdk: 1.8.0_77
+Implementation-URL: https://projects.spring.io/spring-boot/#/spring-bo
+ ot-starter-parent/ch1.helloworld
+Created-By: Maven Integration for Eclipse
+
