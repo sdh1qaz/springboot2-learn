@@ -1,0 +1,32 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>dhsu</groupId>
+	<artifactId>springboot2-learn</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<packaging>pom</packaging>
+	
+	<modules>
+        <module>ch1.helloword</module>
+		<module>ch2.aop</module>
+		<module>ch3.mvc</module>
+		<module>ch4.beetl</module>
+		<module>ch4.jackson</module>
+		<module>ch5.beetlsql</module>
+		<module>ch5.jdbctemplate</module>
+		<module>ch6.jpadata</module>
+		<module>ch7.config</module>
+		<module>ch8.deploy</module>
+		<module>ch9.test</module>
+		<module>ch10.rest</module>
+		<module>ch11.mongodb</module>
+		<module>ch12.redis</module>
+		<module>ch13.elastic</module>
+		<module>ch14.cache</module>
+		<module>ch15.springsession</module>
+		<module>ch16.zookeeper</module>
+		<module>ch17.monitor</module>
+	</modules>
+
+
+</project>
