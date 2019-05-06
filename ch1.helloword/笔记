@@ -14,3 +14,24 @@ LiveReload server is running on port 35729
 Restful只是一个架构风格，采用http协议暴露接口，常用的方法有GET、POST、PUT、DELETE，不是技术体系。
 对于多个系统互相访问，不要直接访问对方的数据库，而应该访问对方的接口。数据的正确与否由对方的接口质量负责，
 这样可以起到不同系统数据解耦合的作用。
+
+3.Ioc的作用是管理Bean，AOP的作用是增强Bean的功能。
+
+4.spring可以管理和增强你的业务代码。
+
+5.用@Service注解后的类，可以用@Autowired自动注入到你需要的地方。这就是IOC
+
+6.AOP Aspect Oriented Programming，面向切面编程。
+通过预编译或者运行时刻对目标对象动态地添加功能。
+
+7.注解 @Retention可以用来修饰注解，是注解的注解，成为元注解。
+Retention注解有一个属性value，是RetentionPolicy类型的，Enum RetentionPolicy是一个枚举类型，
+这个枚举决定了Retention注解应该如何去保持，也可理解为Rentention 搭配 RententionPolicy使用。RetentionPolicy有3个值：CLASS  RUNTIME   SOURCE
+按生命周期来划分可分为3类：
+1、RetentionPolicy.SOURCE：注解只保留在源文件，当Java文件编译成class文件的时候，注解被遗弃；
+2、RetentionPolicy.CLASS：注解被保留到class文件，但jvm加载class文件时候被遗弃，这是默认的生命周期；
+3、RetentionPolicy.RUNTIME：注解不仅被保存到class文件中，jvm加载class文件之后，仍然存在；
+这3个生命周期分别对应于：Java源文件(.java文件) ---> .class文件 ---> 内存中的字节码。
+那怎么来选择合适的注解生命周期呢？
+首先要明确生命周期长度 SOURCE < CLASS < RUNTIME ，所以前者能作用的地方后者一定也能作用。
+参考：https://blog.csdn.net/u010002184/article/details/79166478

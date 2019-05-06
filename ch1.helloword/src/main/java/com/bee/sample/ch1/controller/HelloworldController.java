@@ -15,7 +15,9 @@ public class HelloworldController {
 	
 	
 	@RequestMapping("/say.html")
-	@Function()
+	//@Function()是自定义的一个注解，如果()内为空，则谁都可以访问，设置为user.add后
+	//
+	@Function("user.add")
 	public @ResponseBody String say(String name){
 		return "hello "+name;
 	}
