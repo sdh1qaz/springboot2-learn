@@ -14,7 +14,7 @@ import com.bee.sample.ch1.annotation.Function;
 public class HelloworldController {
 	
 	
-	@RequestMapping("/sayhello.html")
+	@RequestMapping("/say.html")
 	@Function()
 	public @ResponseBody String say(String name){
 		return "hello "+name;

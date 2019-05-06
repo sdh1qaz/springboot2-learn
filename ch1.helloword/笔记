@@ -1,0 +1,16 @@
+1.springboot添加热部署的方法
+----pom.xml添加下面的依赖----
+<dependency>
+	<groupId>org.springframework.boot</groupId>
+	<artifactId>spring-boot-devtools</artifactId>
+	<optional>true</optional>
+</dependency>
+--------------------------
+热部署生效后，改变代码保存后会看到控制台上打印出下面的内容：
+LiveReload server is running on port 35729
+非源码变化不会重新部署，比如这个笔记文件随便更新，项目并不会重新启动，控制台上也不会打印日志。
+
+2.对Restful的理解
+Restful只是一个架构风格，采用http协议暴露接口，常用的方法有GET、POST、PUT、DELETE，不是技术体系。
+对于多个系统互相访问，不要直接访问对方的数据库，而应该访问对方的接口。数据的正确与否由对方的接口质量负责，
+这样可以起到不同系统数据解耦合的作用。
