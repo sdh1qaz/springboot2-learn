@@ -53,6 +53,7 @@ public class Sample34Controller {
 		 System.out.println("call save");
 	}
 	
+	//请求参数中有action=update时才会调用
 	@GetMapping(path = "/update.json", params = "action=update")
 	@ResponseBody
 	public void updateUser() {
