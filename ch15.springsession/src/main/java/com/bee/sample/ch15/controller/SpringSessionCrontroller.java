@@ -37,4 +37,13 @@ public class SpringSessionCrontroller {
 	}
 	
 	
+	@RequestMapping("/login.html") 
+	public String login(HttpServletRequest request){
+		log.info("登录。。。。。。");
+		return "login";
+	}
+	
+	
+	
+	
 }
