@@ -55,10 +55,8 @@ public class ZookeeperConf {
 						log.info(et + ":" + we.getPath());
 						client.checkExists().watched().forPath(we.getPath());
 					}
-
 				}
 			}
-
 		});
 		//
 		// LeaderSelectorListenerAdapter listener = new
@@ -78,7 +76,6 @@ public class ZookeeperConf {
 
 		// 调用start开始链接ZooKeeper
 		client.start();
-
 		registerSerivce(client);
 		ServiceInstance<Map> service = findService(client, "book");
 		return client;
@@ -88,43 +85,49 @@ public class ZookeeperConf {
 
 		// 构造一个服务描述
 		ServiceInstanceBuilder<Map> service = ServiceInstance.builder();
-		service.address("192.168.1.100");
+		//设置服务地址，如缺省，默认本机
+		service.address("192.168.1.14");
+		//设置服务端口
 		service.port(8080);
+		//设置服务名字
 		service.name("book");
-		Map config = new HashMap();
+		//放置额外信息
+		Map<String,String> config = new HashMap<String,String>();
 		config.put("url", "/api/v3/book");
 		service.payload(config);
 
 		ServiceInstance<Map> instance = service.build();
-
+		
+		//basePath：指定服务注册的根节点
+		//new JsonInstanceSerializer<Map>(Map.class))设置序列化类，本例采用map
+		//client(client)设置CuratorFramework
 		ServiceDiscovery<Map> serviceDiscovery = ServiceDiscoveryBuilder.builder(Map.class).client(client)
 				.serializer(new JsonInstanceSerializer<Map>(Map.class)).basePath("/service").build();
 		// 服务注册
 		serviceDiscovery.registerService(instance);
-
 		serviceDiscovery.start();
-
 	}
-
+	
+	//获取服务
 	protected ServiceInstance<Map> findService(CuratorFramework client, String serviceName) throws Exception {
 
 		ServiceDiscovery<Map> serviceDiscovery = ServiceDiscoveryBuilder.builder(Map.class).client(client)
 				.serializer(new JsonInstanceSerializer<Map>(Map.class)).basePath("/service").build();
-
+		//使用前启动服务发现功能
 		serviceDiscovery.start();
-
+		//获取所有的服务实现
 		Collection<ServiceInstance<Map>> all = serviceDiscovery.queryForInstances(serviceName);
 		if (all.size() == 0) {
 			return null;
 		} else {
 			// 取第一个服务
 			ServiceInstance<Map> service = new ArrayList<ServiceInstance<Map>>(all).get(0);
-			System.out.println(service.getAddress());
-			System.out.println(service.getPayload());
+			//打印服务地址
+			System.out.println("服务地址：" + service.getAddress());
+			//打印服务额外信息
+			System.out.println("服务端口：" + service.getPayload());
 			return service;
-
 		}
-
 	}
 
 }
