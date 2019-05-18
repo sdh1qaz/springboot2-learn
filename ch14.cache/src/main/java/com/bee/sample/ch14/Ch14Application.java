@@ -5,7 +5,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cache.annotation.EnableCaching;
 
 @SpringBootApplication
-@EnableCaching
+@EnableCaching//开启springboot缓存支持
 public class Ch14Application {
 
 	public static void main(String[] args) {
