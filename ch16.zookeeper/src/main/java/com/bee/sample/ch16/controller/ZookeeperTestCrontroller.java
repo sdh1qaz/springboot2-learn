@@ -19,12 +19,14 @@ public class ZookeeperTestCrontroller {
 	@Autowired
 	OrderService orderService;
 	
+	//创建节点，节点必须以/开头，如/sudenghui
 	@RequestMapping("/create.html") 
 	public @ResponseBody String create(String path) throws Exception{
 		zkClient.create().forPath(path,new byte[0]);
 		return "create "+path;
 	}
 	
+	//删除节点，只能删除空节点
 	@RequestMapping("/delete.html") 
 	public @ResponseBody String delete(String path) throws Exception{
 		zkClient.delete().forPath(path);
